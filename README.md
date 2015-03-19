@@ -49,7 +49,7 @@ xmlStream.on('tag:person', function(person) {
 
 ```
 ### Output
-```
+```js
 {name: 'Bill', id: '1', age: '27'}
 {name: 'Sally', id: '2', age: '29'}
 {name: 'Kelly', id: '3', age: '37'}
