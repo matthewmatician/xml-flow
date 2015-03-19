@@ -49,7 +49,7 @@ xmlStream.on('tag:person', function(person) {
 
 ```
 ### Output
-```
+```js
 {name: 'Bill', id: '1', age: '27'}
 {name: 'Sally', id: '2', age: '29'}
 {name: 'Kelly', id: '3', age: '37'}
@@ -64,3 +64,4 @@ xmlStream.on('tag:person', function(person) {
   MIT
 
 [npm-url]: https://npmjs.org/package/xml-flow
+[![Coverage Status](https://coveralls.io/repos/matthewmatician/xml-flow/badge.svg)](https://coveralls.io/r/matthewmatician/xml-flow)
