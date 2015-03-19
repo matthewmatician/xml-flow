@@ -65,3 +65,4 @@ xmlStream.on('tag:person', function(person) {
 
 [npm-url]: https://npmjs.org/package/xml-flow
 [![Coverage Status](https://coveralls.io/repos/matthewmatician/xml-flow/badge.svg)](https://coveralls.io/r/matthewmatician/xml-flow)
+[![Build Status](https://travis-ci.org/matthewmatician/xml-flow.svg?branch=master)](https://travis-ci.org/matthewmatician/xml-flow)
