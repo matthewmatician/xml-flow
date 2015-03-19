@@ -64,3 +64,4 @@ xmlStream.on('tag:person', function(person) {
   MIT
 
 [npm-url]: https://npmjs.org/package/xml-flow
+[![Coverage Status](https://coveralls.io/repos/matthewmatician/xml-flow/badge.svg)](https://coveralls.io/r/matthewmatician/xml-flow)
