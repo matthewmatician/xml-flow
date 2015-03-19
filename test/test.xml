@@ -1,0 +1,25 @@
+<root>
+    <no-attrs>
+        <person>
+            <name>Bill</name>
+            <id>1</id>
+            <age>27</age>
+        </person>
+        <person>
+            <name>Joe</name>
+            <id>2</id>
+            <age>29</age>
+        </person>
+        <person>
+            <name>Smitty</name>
+            <id>3</id>
+            <age>37</age>
+        </person>
+    </no-attrs>
+
+    <all-attrs>
+        <person name="Bill" id="1" age="27" />
+        <person name="Joe" id="2" age="29" />
+        <person name="Smitty" id="3" age="37" />
+    </all-attrs>
+</root>

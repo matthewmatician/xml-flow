@@ -1,0 +1,56 @@
+/*global describe, it */
+
+var helper = require('../lib/helper')
+  , should = require('chai').should()
+;
+
+describe('helper.objectifyMarkup()', function(){
+    it('should add object array properties from $markup', function(){
+        var input, output;
+        input = {
+            $name: 'root',
+            $attrs: {},
+            $markup: [
+                'text',
+                [
+                    {$name: 'item', $text: 'something'},
+                    {$name: 'item', $text: 'else'}
+                ]
+            ]
+        };
+
+        output = {
+            $name: 'root',
+            $attrs: {},
+            $text: 'text',
+            item: ['something', 'else']
+        };
+
+        helper.objectifyMarkup(input).should.deep.equal(output);
+    });
+
+    it('should aggregate everything from $markup', function() {
+        var input, output;
+        input = {
+            $name: 'root',
+            $attrs: {},
+            $markup: [
+                'text',
+                [
+                    {$name: 'item', $text: 'something'},
+                    {$name: 'item', $text: 'else'}
+                ],
+                'text',
+                {$name: 'item', $text: 'otherwise'}
+            ]
+        };
+
+        output = {
+            $name: 'root',
+            $attrs: {},
+            $text: ['text', 'text'],
+            item: ['something', 'else', 'otherwise']
+        };
+        helper.objectifyMarkup(input).should.deep.equal(output);
+    });
+});
