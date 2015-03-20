@@ -1,6 +1,4 @@
-# xml-flow [![Build Status](https://travis-ci.org/matthewmatician/xml-flow.svg?branch=master)](https://travis-ci.org/matthewmatician/xml-flow)
-
-##### An XML/HTML stream reader, now with less suck!
+# xml-flow [![Build Status](https://travis-ci.org/matthewmatician/xml-flow.svg?branch=master)](https://travis-ci.org/matthewmatician/xml-flow)[![Coverage Status](https://coveralls.io/repos/matthewmatician/xml-flow/badge.svg)](https://coveralls.io/r/matthewmatician/xml-flow)
 
 Dealing with XML data can be frustrating. Especially if you have a whole-lot of it. Most XML readers work on the entire XML document as a String: this can be problematic if you need to read very large XML files. With xml-flow, you can use streams to only load a small part of an XML document into memory at a time.
 
@@ -65,4 +63,3 @@ xmlStream.on('tag:person', function(person) {
   MIT
 
 [npm-url]: https://npmjs.org/package/xml-flow
-[![Coverage Status](https://coveralls.io/repos/matthewmatician/xml-flow/badge.svg)](https://coveralls.io/r/matthewmatician/xml-flow)
