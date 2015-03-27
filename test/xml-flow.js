@@ -12,7 +12,10 @@ function getFlow(fileName, options) {
 describe('xml-flow', function(){
     describe('invoke', function(){
         it('should create an emitter when invoked with a stream and options', function(){
-            var simpleStream = getFlow('./test/simple.xml');
+            var inStream = fs.createReadStream('./test/simple.xml'), simpleStream;
+            inStream.pause();
+            simpleStream = flow(inStream);
+
             simpleStream.on.should.be.a('function');
             simpleStream.pause();
             simpleStream.resume();
