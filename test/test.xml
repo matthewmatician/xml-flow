@@ -22,4 +22,21 @@
         <person name="Joe" id="2" age="29" />
         <person name="Smitty" id="3" age="37" />
     </all-attrs>
+
+    <mixed>
+        <person name="Bill" id="1" age="27">
+            some text
+        </person>
+        <person name="Joe" id="2" age="29">
+            <p>some paragraph</p>
+        </person>
+        <person name="Smitty" id="3" age="37">
+            <thing id="999" ref="blah"></thing>
+        </person>
+    </mixed>
+
+    <has-scripts>
+        <script>var x = 3;</script>
+        <script type="text/javascript">//this is a comment</script>
+    </has-scripts>
 </root>

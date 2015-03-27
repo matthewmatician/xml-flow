@@ -39,4 +39,25 @@ describe('helper.simplifyNode()', function(){
         helper.simplifyNode(input).should.deep.equal(output);
         helper.simplifyNode(input, true).should.deep.equal(input.$attrs);
     });
+
+    it('should not simplify when things get interesting', function(){
+        var input, output;
+
+        input = {
+            $name: 'header',
+            $attrs: {id: '3'},
+            $markup: [ 'some text' ]
+        };
+
+        output = {
+            $name: 'header',
+            $attrs: {id: '3'},
+            $markup: 'some text'
+        };
+
+        helper.simplifyNode(input).should.deep.equal(output);
+        delete output.$name;
+
+        helper.simplifyNode(input, true).should.deep.equal(output);
+    });
 });

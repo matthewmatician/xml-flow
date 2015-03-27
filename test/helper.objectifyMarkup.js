@@ -53,4 +53,27 @@ describe('helper.objectifyMarkup()', function(){
         };
         helper.objectifyMarkup(input).should.deep.equal(output);
     });
+
+    it('should not oversimplify', function() {
+        var input, output;
+
+        input = {
+            $name: 'thing',
+            $markup: [{
+                $name: 'header',
+                $attrs: {id: '3'},
+                $markup: [ 'some text' ]
+            }]
+        };
+
+        output = {
+            $name: 'thing',
+            header: {
+                $attrs: {id: '3'},
+                $markup: 'some text'
+            }
+        };
+
+        helper.objectifyMarkup(input).should.deep.equal(output);
+    });
 });

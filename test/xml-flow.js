@@ -5,8 +5,8 @@ var flow = require('../lib/xml-flow')
   , should = require('chai').should()
 ;
 
-function getFlow(fileName) {
-    return flow(fs.createReadStream(fileName));
+function getFlow(fileName, options) {
+    return flow(fs.createReadStream(fileName), options);
 }
 
 describe('xml-flow', function(){
@@ -14,6 +14,8 @@ describe('xml-flow', function(){
         it('should create an emitter when invoked with a stream and options', function(){
             var simpleStream = getFlow('./test/simple.xml');
             simpleStream.on.should.be.a('function');
+            simpleStream.pause();
+            simpleStream.resume();
         });
     });
 
@@ -73,6 +75,41 @@ describe('xml-flow', function(){
             ;
 
             simpleStream.on('tag:all-attrs', function(node){
+                node.should.deep.equal(output);
+                done();
+            });
+        });
+
+        it('should handle tags with both attributes and other stuff', function(done){
+            var simpleStream = getFlow('./test/test.xml')
+              , output = {
+                    $name: 'mixed',
+                    person: [
+                        {$attrs:{name: 'Bill', id: '1', age:'27'}, $text: 'some text'},
+                        {$attrs: {name: 'Joe', id: '2', age:'29'}, p: 'some paragraph'},
+                        {$attrs: {name: 'Smitty', id: '3', age:'37'}, thing: {id:'999', ref:'blah'}}
+                    ]
+              }
+            ;
+
+            simpleStream.on('tag:mixed', function(node){
+                node.should.deep.equal(output);
+                done();
+            });
+        });
+
+        it('should handle scripts', function(done){
+            var simpleStream = getFlow('./test/test.xml')
+              , output = {
+                    $name: 'has-scripts',
+                    script: [
+                        'var x = 3;',
+                        {$attrs: {type: 'text/javascript'}, $script: '//this is a comment'}
+                    ]
+              }
+            ;
+
+            simpleStream.on('tag:has-scripts', function(node){
                 node.should.deep.equal(output);
                 done();
             });
