@@ -70,7 +70,7 @@ describe('helper.objectifyMarkup()', function(){
             $name: 'thing',
             header: {
                 $attrs: {id: '3'},
-                $markup: 'some text'
+                $markup: ['some text']
             }
         };
 

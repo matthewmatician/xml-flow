@@ -5,6 +5,10 @@ var helper = require('../lib/helper')
 ;
 
 describe('helper.simplifyNode()', function(){
+    it('should return the already simplified', function(){
+        helper.simplifyNode('simple').should.equal('simple');
+    });
+
     it('should return only text when really simple', function(){
         var input = {
             $name: 'title',
@@ -32,12 +36,30 @@ describe('helper.simplifyNode()', function(){
             $attrs: {id: '34'},
             $text: null
         };
+
         output = {
             $name: 'title',
             id: '34'
         };
         helper.simplifyNode(input).should.deep.equal(output);
         helper.simplifyNode(input, true).should.deep.equal(input.$attrs);
+    });
+
+    it('should simplify $markup', function(){
+        var input, output;
+
+        input = {
+            $name: 'title',
+            $attrs: {},
+            $markup: [{$name: 'p', $attrs: {}, $markup: ['stuff']}]
+        };
+
+        output = {
+            $name: 'title',
+            $markup: [{$name: 'p', $markup: ['stuff']}]
+        };
+        helper.simplifyNode(input).should.deep.equal(output);
+
     });
 
     it('should not simplify when things get interesting', function(){
@@ -52,7 +74,7 @@ describe('helper.simplifyNode()', function(){
         output = {
             $name: 'header',
             $attrs: {id: '3'},
-            $markup: 'some text'
+            $markup: ['some text']
         };
 
         helper.simplifyNode(input).should.deep.equal(output);
