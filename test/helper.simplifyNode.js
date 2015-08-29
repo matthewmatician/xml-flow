@@ -6,6 +6,7 @@ var helper = require('../lib/helper')
 
 describe('helper.simplifyNode()', function(){
     it('should return the already simplified', function(){
+        should.not.exist(helper.simplifyNode(null));
         helper.simplifyNode('simple').should.equal('simple');
     });
 
@@ -60,6 +61,19 @@ describe('helper.simplifyNode()', function(){
         };
         helper.simplifyNode(input).should.deep.equal(output);
 
+    });
+
+    it('should strip single-element arrays', function(){
+
+        helper.simplifyNode({
+            $name: 'tag',
+            'stuff':['test']
+        }).should.deep.equal({
+            $name: 'tag',
+            'stuff':'test'
+        });
+
+        helper.simplifyNode(['test']).should.equal('test');
     });
 
     it('should not simplify when things get interesting', function(){
