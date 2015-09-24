@@ -87,6 +87,7 @@ describe('xml-flow', function(){
             var simpleStream = getFlow('./test/test.xml')
               , output = {
                     $name: 'mixed',
+                    "cdata-item": {name: "some name" },
                     person: [
                         {$attrs:{name: 'Bill', id: '1', age:'27'}, $text: 'some text'},
                         {$attrs: {name: 'Joe', id: '2', age:'29'}, p: 'some paragraph'},
@@ -111,7 +112,7 @@ describe('xml-flow', function(){
                         'Some more unwrapped text',
                         {$name: 'person', $attrs: {name: 'Joe', id: '2', age:'29'}, p: 'some paragraph'},
                         {$name: 'person', $attrs: {name: 'Smitty', id: '3', age:'37'}, thing: {id:'999', ref:'blah'}}
-                    ]
+                        ]
                 }
             ;
 
@@ -225,6 +226,11 @@ describe('xml-flow', function(){
                             $name: 'person',
                             $attrs: {name: 'Smitty', id: '3', age:'37'},
                             $markup: [{$name: 'thing', id:'999', ref:'blah'}]
+                        },
+                        {
+                            $attrs: {name: "some name"},
+                            $markup: ["Ei fu siccome immobile dato il mortal sospiro < ' \" & ? ; . ]] ] "],
+                            $name: "cdata-item"
                         }
                     ]
                 }
