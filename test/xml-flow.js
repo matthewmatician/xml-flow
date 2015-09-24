@@ -152,19 +152,6 @@ describe('xml-flow', function(){
             });
         });
 
-        //it('should add cdata to $text when asked to', function(done) {
-        //    var simpleStream = getFlow('./test/test.xml',{retrieveCdata:true})
-        //      , output = 'Ei fu siccome immobile dato il mortal sospiro  \' " & ? ; . ]] ] ';
-        //    ;
-        //
-        //    simpleStream.on('tag:cdata-item', function(node){
-        //        node.$text.should.equal(output);
-        //        done();
-        //    });
-        //});
-
-
-
         it('should not normalize whitespace when asked not to', function(done) {
             var simpleStream = getFlow('./test/test.xml', {normalize: false})
               , output = 'This is some text with extra    whitespace.'
