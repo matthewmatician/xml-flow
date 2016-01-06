@@ -147,7 +147,7 @@ You may add a second argument when calling the function, as `flow(stream, option
 * `trim` - Boolean. Default = true. Whether or not to trim leading and trailing whitespace from text
 * `normalize` - Boolean. Default = true. Turns all whitespace into a single space.
 * `preserveMarkup` - One of flow.ALWAYS, flow.SOMETIMES (default), or flow.NEVER. When set to ALWAYS, All subtags and text are stored in the $markup property with their original order preserved. When set to NEVER, all subtags are collected as separate properties. When set to SOMETIMES, markup is preserved only when subtags have non-contiguous repetition.
-* `simplifyObjects` - Boolean. Default = true. Whether to drop empty $attrs, pull properties out of the $attrs when there are no subtags, or to only use a String instead of an object when $text is the only property.
+* `simplifyNodes` - Boolean. Default = true. Whether to drop empty $attrs, pull properties out of the $attrs when there are no subtags, or to only use a String instead of an object when $text is the only property.
 * `useArrays` - One of flow.ALWAYS, flow.SOMETIMES (default), or flow.NEVER. When set to ALWAYS, All subtags and text are enclosed in arrays, even if there's only one found. When set to NEVER, only the first instance of a subtag or text node are kept. When set to SOMETIMES, arrays are used only when multiple items are found. *NOTE:* When set to NEVER, `preserveMarkup` is ignored.
 
 ## Events
