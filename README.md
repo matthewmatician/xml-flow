@@ -149,6 +149,7 @@ You may add a second argument when calling the function, as `flow(stream, option
 * `preserveMarkup` - One of flow.ALWAYS, flow.SOMETIMES (default), or flow.NEVER. When set to ALWAYS, All subtags and text are stored in the $markup property with their original order preserved. When set to NEVER, all subtags are collected as separate properties. When set to SOMETIMES, markup is preserved only when subtags have non-contiguous repetition.
 * `simplifyNodes` - Boolean. Default = true. Whether to drop empty $attrs, pull properties out of the $attrs when there are no subtags, or to only use a String instead of an object when $text is the only property.
 * `useArrays` - One of flow.ALWAYS, flow.SOMETIMES (default), or flow.NEVER. When set to ALWAYS, All subtags and text are enclosed in arrays, even if there's only one found. When set to NEVER, only the first instance of a subtag or text node are kept. When set to SOMETIMES, arrays are used only when multiple items are found. *NOTE:* When set to NEVER, `preserveMarkup` is ignored.
+* `cdataAsText` - Boolean. Default = false. Appends CDATA text to other nearby text instead of putting it into its own `$cdata` property. NOTE: If you plan to run the `toXml()` function on data that had CDATA in it, don't set this to true or you'll end up with malformed XML output.
 
 ## Events
 All events can be listened to via common nodeJS EventEmitter syntax.
