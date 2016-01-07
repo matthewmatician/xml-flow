@@ -8,3 +8,6 @@ node_js:
 script: "npm run-script test-travis"
 # Send coverage data to Coveralls
 after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+addons:
+  code_climate:
+    repo_token: 0ccfca9f99926c5e4bcc517db8f15125cb811bd6f59970ffcfbe4ebc13a8af9b
