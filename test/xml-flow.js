@@ -137,6 +137,41 @@ describe('xml-flow', function(){
                 done();
             });
         });
+
+        it('should handle CDATA', function(done){
+            var simpleStream = getFlow('./test/test.xml')
+              , output = {
+                  $name: 'has-cdata',
+                  $text: 'here comes the cdata...',
+                  $cdata: 'this is <span>cdata!</span>'
+              }
+            ;
+
+            simpleStream.on('tag:has-cdata', function(node){
+                node.should.deep.equal(output);
+                done();
+            });
+        });
+
+        it('should handle bad formatting', function(done) {
+            var simpleStream = getFlow('./test/badFormatting.xml')
+              , output = {
+                $name: "section",
+                $markup: [
+                  "Text1</p>",
+                  {$name: "p", $text: "Text2"},
+                  {$name: "p", $text: "Text3"},
+                  "Text4",
+                  {$name: "p"}
+                ]
+              }
+            ;
+
+            simpleStream.on('tag:section', function(node) {
+              node.should.deep.equal(output);
+              done();
+            });
+        });
     });
 
     describe('options', function(){
@@ -235,6 +270,20 @@ describe('xml-flow', function(){
                 done();
             });
         });
+
+        it('should handle CDATA as text when asked', function(done){
+            var simpleStream = getFlow('./test/test.xml', {cdataAsText: true})
+              , output = {
+                  $name: 'has-cdata',
+                  $text: 'here comes the cdata...this is <span>cdata!</span>'
+              }
+            ;
+
+            simpleStream.on('tag:has-cdata', function(node){
+                node.should.deep.equal(output);
+                done();
+            });
+        });
     });
 
     describe("toXml()", function(){
@@ -269,6 +318,13 @@ describe('xml-flow', function(){
         it('should convert $script', function(){
             var input = {$name: 'tag', $script:'console.log("stuff");'}
               , output = '<tag><script>console.log("stuff");</script></tag>';
+
+            flow.toXml(input).should.equal(output);
+        });
+
+        it('should convert $cdata', function(){
+            var input = {$name: 'tag', $cdata:'<<science>>'}
+              , output = '<tag><![CDATA[<<science>>]]></tag>';
 
             flow.toXml(input).should.equal(output);
         });

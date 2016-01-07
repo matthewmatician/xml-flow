@@ -56,4 +56,8 @@
         <script>var x = 3;</script>
         <script type="text/javascript">//this is a comment</script>
     </has-scripts>
+
+    <has-cdata>
+        here comes the cdata...<![CDATA[this is <span>cdata!</span>]]>
+    </has-cdata>
 </root>

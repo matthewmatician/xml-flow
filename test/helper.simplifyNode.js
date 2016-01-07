@@ -46,6 +46,20 @@ describe('helper.simplifyNode()', function(){
         helper.simplifyNode(input, true).should.deep.equal(input.$attrs);
     });
 
+    it('should not oversimplify empty nodes', function(){
+        var input, output;
+
+        input = {
+            $name: 'title',
+            $text: null
+        };
+
+        output = {
+            $name: 'title',
+        };
+        helper.simplifyNode(input).should.deep.equal(output);
+    });
+
     it('should simplify $markup', function(){
         var input, output;
 
