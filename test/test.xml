@@ -1,63 +1,71 @@
 <root>
-    <no-attrs>
-        <person>
-            <name>Bill</name>
-            <id>1</id>
-            <age>27</age>
-        </person>
-        <person>
-            <name>Joe</name>
-            <id>2</id>
-            <age>29</age>
-        </person>
-        <person>
-            <name>Smitty</name>
-            <id>3</id>
-            <age>37</age>
-        </person>
-    </no-attrs>
+  <no-attrs>
+    <person>
+      <name>Bill</name>
+      <id>1</id>
+      <age>27</age>
+    </person>
+    <person>
+      <name>Joe</name>
+      <id>2</id>
+      <age>29</age>
+    </person>
+    <person>
+      <name>Smitty</name>
+      <id>3</id>
+      <age>37</age>
+    </person>
+  </no-attrs>
 
-    <all-attrs>
-        <person name="Bill" id="1" age="27" />
-        <person name="Joe" id="2" age="29" />
-        <person name="Smitty" id="3" age="37" />
-    </all-attrs>
+  <all-attrs>
+    <person name="Bill" id="1" age="27" />
+    <person name="Joe" id="2" age="29" />
+    <person name="Smitty" id="3" age="37" />
+  </all-attrs>
 
-    <mixed>
-        <person name="Bill" id="1" age="27">
-            some text
-        </person>
-        <person name="Joe" id="2" age="29">
-            <p>some paragraph</p>
-        </person>
-        <person name="Smitty" id="3" age="37">
-            <thing id="999" ref="blah"></thing>
-        </person>
-    </mixed>
+  <mixed>
+    <person name="Bill" id="1" age="27">
+      some text
+    </person>
+    <person name="Joe" id="2" age="29">
+      <p>some paragraph</p>
+    </person>
+    <person name="Smitty" id="3" age="37">
+      <thing id="999" ref="blah"></thing>
+    </person>
+  </mixed>
 
-    <markup>
-        Some unwrapped text
-        <person name="Bill" id="1" age="27">
-            some text
-        </person>
-        Some more unwrapped text
-        <person name="Joe" id="2" age="29">
-            <p>some paragraph</p>
-        </person>
-        <person name="Smitty" id="3" age="37">
-            <thing id="999" ref="blah"></thing>
-        </person>
-    </markup>
+  <markup>
+    Some unwrapped text
+    <person name="Bill" id="1" age="27">
+      some text
+    </person>
+    Some more unwrapped text
+    <person name="Joe" id="2" age="29">
+      <p>some paragraph</p>
+    </person>
+    <person name="Smitty" id="3" age="37">
+      <thing id="999" ref="blah"></thing>
+    </person>
+  </markup>
 
+  <one-item>
+    <p>this is one item</p>
+  </one-item>
 
-    <extra-whitespace>This is some text with extra    whitespace. </extra-whitespace>
+  <two-items>
+    <p>one</p>
+    <p>two</p>
+  </two-items>
 
-    <has-scripts>
-        <script>var x = 3;</script>
-        <script type="text/javascript">//this is a comment</script>
-    </has-scripts>
+  <extra-whitespace>This is some text with extra    whitespace. </extra-whitespace>
 
-    <has-cdata>
-        here comes the cdata...<![CDATA[this is <span>cdata!</span>]]>
-    </has-cdata>
+  <has-scripts>
+    <script>var x = 3;</script>
+    <script type="text/javascript">//this is a comment</script>
+  </has-scripts>
+
+  <has-cdata>
+    here comes the cdata...<![CDATA[this is <span>cdata!</span>]]>
+  </has-cdata>
 </root>
