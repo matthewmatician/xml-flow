@@ -1,6 +1,6 @@
 {
   "name": "xml-flow",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "An XML/HTML stream reader, now with less suck.",
   "main": "lib/xml-flow.js",
   "scripts": {
