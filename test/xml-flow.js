@@ -353,8 +353,8 @@ describe('xml-flow', function() {
     });
 
     it('should convert $script', function() {
-      var input = { $name: 'tag', $script: 'console.log("stuff");' }
-        , output = '<tag><script>console.log("stuff");</script></tag>'
+      var input = { $name: 'tag', $script: "console.log('stuff');" }
+        , output = "<tag><script>console.log('stuff');</script></tag>"
         ;
 
       flow.toXml(input).should.equal(output);
@@ -391,6 +391,14 @@ describe('xml-flow', function() {
         ;
 
       flow.toXml(input, { selfClosing: false }).should.equal(output);
+    });
+
+    it('should escape html entities', function() {
+      var input = { $name: 'tag', $text: "<br><br><table class='data' ></table>" }
+        , output = "<tag>&lt;br&gt;&lt;br&gt;&lt;table class='data' &gt;&lt;/table&gt;</tag>"
+        ;
+
+      flow.toXml(input).should.equal(output);
     });
   });
 });

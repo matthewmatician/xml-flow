@@ -162,8 +162,12 @@ All events can be listened to via common nodeJS EventEmitter syntax.
 
 `query:<<QUERY>>` - Coming soon...
 
-## Utility Methods
-* `toXml(node)` - Returns a string, XML-encoding of an object. Encodes $name, $attrs, $text, and $markup as you would expect. Pretty-print coming soon!
+## toXml Utility
+`toXml(node, options)` - Returns a string, XML-encoding of an object. Encodes $name, $attrs, $text, and $markup as you would expect. the following `options` are available:
+
+* `indent` – How to indent tags for pretty-printing. If you don't provide an indent value, (like '  ' for two-spaces, for example), output will not be pretty-printed.
+* `selfClosing` – Whether to self close tags (like `<br/>` for example) whenever possible defaults to true.
+* `escape` – Optionally provide an escape function for all text, to prevent malformed XML. As a default, a very simplistic escape function has been provided. You can provide a more robust escape function that suits your needs. For example, take a look at [he](https://github.com/mathiasbynens/he). To turn escaping off, provide a simple, non-escaping function like this: `function(str) { return str; }`
 
 ## Authors
 
