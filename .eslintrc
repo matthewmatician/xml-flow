@@ -44,7 +44,7 @@
     "guard-for-in": 2,
     # "object-shorthand": [2, "never"],
     "object-shorthand": [2, "always"],
-    "complexity": [2, 10],
+    "complexity": [2, 15],
     "block-scoped-var": 2,
     "dot-location": [2, "property"],
     "dot-notation": 2,

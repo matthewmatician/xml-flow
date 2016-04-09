@@ -89,6 +89,18 @@ describe('helper.simplifyNode()', function() {
     helper.simplifyNode([ 'test' ]).should.equal('test');
   });
 
+  it('should preserve arrays when asked', function() {
+    helper.simplifyNode({
+      $name: 'tag',
+      stuff: [ 'test' ]
+    }, false, true).should.deep.equal({
+      $name: 'tag',
+      stuff: [ 'test' ]
+    });
+
+    helper.simplifyNode([ 'test' ], false, true).should.deep.equal([ 'test' ]);
+  });
+
   it('should not simplify when things get interesting', function() {
     var input, output;
 

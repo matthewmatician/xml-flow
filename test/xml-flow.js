@@ -290,6 +290,20 @@ describe('xml-flow', function() {
       });
     });
 
+    it('should completely drop arrays when asked', function(done) {
+      var simpleStream = getFlow('./test/test.xml', { useArrays: flow.NEVER })
+        , output = {
+          $name: 'two-items',
+          p: 'one'
+        }
+        ;
+
+      simpleStream.on('tag:two-items', function(node) {
+        node.should.deep.equal(output);
+        done();
+      });
+    });
+
     it('should keep things as arrays when asked', function(done) {
       var simpleStream = getFlow('./test/test.xml', { useArrays: flow.ALWAYS })
         , output = {
@@ -308,7 +322,7 @@ describe('xml-flow', function() {
   describe('toXml()', function() {
     it('should convert $attrs as expected', function() {
       var input = { $name: 'tag', $attrs: { id: 3 }}
-        , output = '<tag id="3"></tag>'
+        , output = '<tag id="3"/>'
         ;
 
       flow.toXml(input).should.equal(output);
@@ -352,6 +366,31 @@ describe('xml-flow', function() {
         ;
 
       flow.toXml(input).should.equal(output);
+    });
+
+    it('should pretty-print', function() {
+      var input = {
+          $name: 'tag',
+          $markup: [
+            'text',
+            {
+              $name: 'tag',
+              $text: 'moar text'
+            }
+          ]
+        }
+        , output = '<tag>\n  text\n  <tag>\n    moar text\n  </tag>\n</tag>'
+        ;
+
+      flow.toXml(input, { indent: '  ' }).should.equal(output);
+    });
+
+    it('should not do self-closing if asked', function() {
+      var input = { $name: 'tag', $attrs: { id: 3 }}
+        , output = '<tag id="3"></tag>'
+        ;
+
+      flow.toXml(input, { selfClosing: false }).should.equal(output);
     });
   });
 });

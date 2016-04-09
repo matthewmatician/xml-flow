@@ -22,8 +22,15 @@ describe('helper.moosh()', function() {
 
   it('should unwrap single-element arrays', function() {
     helper.moosh(undefined, [ 'item' ]).should.equal('item');
-    helper.moosh(undefined, [ 'item' ]).should.equal('item');
+    helper.moosh([ 'item' ], undefined).should.equal('item');
     helper.moosh([ 'item' ], [ 'item2' ]).should.deep.equal([ 'item', 'item2' ]);
+  });
+
+  it('should preserve arrays when asked', function() {
+    helper.moosh(undefined, [ 'item' ], true).should.deep.equal([ 'item' ]);
+    helper.moosh([ 'item' ], undefined, true).should.deep.equal([ 'item' ]);
+    helper.moosh('item', undefined, true).should.deep.equal([ 'item' ]);
+    helper.moosh(undefined, 'item', true).should.deep.equal([ 'item' ]);
   });
 
   it('should concatenate arrays', function() {

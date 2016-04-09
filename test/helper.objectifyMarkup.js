@@ -76,4 +76,26 @@ describe('helper.objectifyMarkup()', function() {
 
     helper.objectifyMarkup(input).should.deep.equal(output);
   });
+
+  it('should preserve arrays if asked', function() {
+    var input, output;
+
+    input = {
+      $name: 'root',
+      $attrs: {},
+      $markup: [
+        'text',
+        { $name: 'item', $text: 'something' }
+      ]
+    };
+
+    output = {
+      $name: 'root',
+      $attrs: {},
+      $text: [ 'text' ],
+      item: [ 'something' ]
+    };
+
+    helper.objectifyMarkup(input, true).should.deep.equal(output);
+  });
 });
