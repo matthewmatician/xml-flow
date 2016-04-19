@@ -53,12 +53,7 @@ describe('xml-flow', function() {
     });
 
     it('should listen to tags with namespaces', function(done) {
-      var simpleStream = getFlow('./test/with-ns.xml')
-      , output = {
-        $name: 'alien',
-        $ns: 'my:ns'
-      }
-      ;
+      var simpleStream = getFlow('./test/with-ns.xml');
 
       simpleStream.on('tag:my:ns alien', function() {
         done();
