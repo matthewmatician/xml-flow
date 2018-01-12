@@ -101,6 +101,20 @@ describe('helper.simplifyNode()', function() {
     helper.simplifyNode([ 'test' ], false, true).should.deep.equal([ 'test' ]);
   });
 
+  it('should simplify arrays as arrays', function() {
+    var input, output;
+
+    input = {
+      items: [ { id: 1 }, { id: 2 } ]
+    };
+
+    output = [
+      { id: 1 }, { id: 2 }
+    ];
+
+    helper.simplifyNode(input).should.deep.equal(output);
+  });
+
   it('should not simplify when things get interesting', function() {
     var input, output;
 
