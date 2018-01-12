@@ -1,6 +1,6 @@
 {
   "name": "xml-flow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An XML/HTML stream reader, now with less suck.",
   "main": "lib/xml-flow.js",
   "scripts": {
@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/matthewmatician/xml-flow",
   "dependencies": {
-    "sax": "^1.2.1"
+    "sax": "^1.2.4"
   },
-    "devDependencies": {
+  "devDependencies": {
     "chai": "*",
     "coveralls": "*",
     "istanbul": "*",
-    "mocha": "2.2.1"
+    "mocha": "4.1.0"
   }
 }
