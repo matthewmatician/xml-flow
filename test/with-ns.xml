@@ -1,0 +1,3 @@
+<root xmlns:a="my:ns">
+  <a:alien>Thing1</a:alien>
+</root>

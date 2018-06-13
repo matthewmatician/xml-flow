@@ -52,6 +52,14 @@ describe('xml-flow', function() {
       });
     });
 
+    it('should listen to tags with namespaces', function(done) {
+      var simpleStream = getFlow('./test/with-ns.xml');
+
+      simpleStream.on('tag:my:ns alien', function() {
+        done();
+      });
+    });
+
     it('should make non-attributed data look really simple', function(done) {
       var simpleStream = getFlow('./test/test.xml')
         , output = {
