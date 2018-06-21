@@ -4,7 +4,6 @@
 const helper = require('../lib/helper');
 const should = require('chai').should();
 
-
 describe('helper.simplifyNode()', () => {
   it('should return the already simplified', () => {
     should.not.exist(helper.simplifyNode(null));

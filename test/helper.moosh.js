@@ -2,8 +2,6 @@
 /*global describe, it */
 
 const helper = require('../lib/helper');
-
-
 require('chai').should();
 
 describe('helper.moosh()', () => {
