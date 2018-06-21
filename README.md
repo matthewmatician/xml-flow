@@ -1,5 +1,5 @@
 # xml-flow
-[![NPM version][npm-image]][npm-url]  [![Build status][travis-image]][travis-url]   [![Coverage][coverage-image]][coverage-url] ![dependencies][david-image]
+[![NPM version][npm-image]][npm-url]  [![Build status][travis-image]][travis-url] ![dependencies][david-image] [![Test Coverage](https://api.codeclimate.com/v1/badges/86761e1a2a0daec072b9/test_coverage)](https://codeclimate.com/github/matthewmatician/xml-flow/test_coverage)
 
 Dealing with XML data can be frustrating. Especially if you have a whole-lot of it. Most XML readers work on the entire XML document as a String: this can be problematic if you need to read very large XML files. With xml-flow, you can use streams to only load a small part of an XML document into memory at a time.
 
@@ -181,6 +181,4 @@ All events can be listened to via common nodeJS EventEmitter syntax.
 [npm-url]: https://npmjs.org/package/xml-flow
 [travis-image]: https://img.shields.io/travis/matthewmatician/xml-flow.svg?style=flat
 [travis-url]: https://travis-ci.org/matthewmatician/xml-flow
-[coverage-image]: https://img.shields.io/codeclimate/coverage/matthewmatician/xml-flow.svg?style=flat
-[coverage-url]: https://codeclimate.com/github/matthewmatician/xml-flow
 [david-image]: https://img.shields.io/david/matthewmatician/xml-flow.svg?style=flat
