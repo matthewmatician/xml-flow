@@ -15,6 +15,7 @@
     "mocha/handle-done-callback": 2,
     "mocha/no-return-and-callback": 2,
 
+    "complexity": [1, {"max": 9}],
     "eqeqeq": [1, "smart"],
     "implicit-arrow-linebreak": 1,
     "no-console": [2, { "allow": ["warn", "error"]}],
