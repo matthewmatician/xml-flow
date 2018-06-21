@@ -1,13 +1,14 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=0ccfca9f99926c5e4bcc517db8f15125cb811bd6f59970ffcfbe4ebc13a8af9b
 language: node_js
 node_js:
-  - "0.12"
-  - "0.11"
-  - "0.10"
-  - "iojs"
-  - "iojs-v1.0.4"
-script: "npm run-script test-travis"
-# Send coverage data to Coveralls
-after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
-addons:
-  code_climate:
-    repo_token: 0ccfca9f99926c5e4bcc517db8f15125cb811bd6f59970ffcfbe4ebc13a8af9b
+  - "10"
+  - "8"
+  - "6"
+script: "npm run travis"
+after_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter format-coverage --input-type lcov --output coverage/codeclimate.json coverage/lcov.info
+  - ./cc-test-reporter upload-coverage --input coverage/codeclimate.json

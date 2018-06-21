@@ -1,17 +1,17 @@
 /*eslint func-names: 0, no-magic-numbers:0 */
 /*global describe, it */
 
-var helper = require('../lib/helper');
+const helper = require('../lib/helper');
 require('chai').should();
 
-describe('helper.shouldObjectifyMarkup()', function() {
-  it('should succeed on text', function() {
-    var input = [ 'Some words' ];
+describe('helper.shouldObjectifyMarkup()', () => {
+  it('should succeed on text', () => {
+    const input = [ 'Some words' ];
     helper.shouldObjectifyMarkup(input).should.be.true;
   });
 
-  it('should succeed when no duplicates', function() {
-    var input = [
+  it('should succeed when no duplicates', () => {
+    const input = [
       [
         { $name: 'item', $text: 'something' },
         { $name: 'item', $text: 'else' }
@@ -26,8 +26,8 @@ describe('helper.shouldObjectifyMarkup()', function() {
     helper.shouldObjectifyMarkup(input).should.be.true;
   });
 
-  it('should fail on duplicates', function() {
-    var input = [
+  it('should fail on duplicates', () => {
+    const input = [
       [{ $name: 'other', $text: 'something' }],
       [
         { $name: 'item', $text: 'something' },
@@ -38,8 +38,8 @@ describe('helper.shouldObjectifyMarkup()', function() {
     helper.shouldObjectifyMarkup(input).should.be.false;
   });
 
-  it('should fail on duplicate text items', function() {
-    var input = [
+  it('should fail on duplicate text items', () => {
+    const input = [
       'text',
       [
         { $name: 'item', $text: 'something' },
