@@ -4,7 +4,8 @@
   "description": "An XML/HTML stream reader, now with less suck.",
   "main": "lib/xml-flow.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/*.js",
+    "lint": "eslint **/*.js",
+    "test": "mocha test/*.js",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*.js"
   },
   "repository": {
@@ -29,7 +30,10 @@
   "devDependencies": {
     "chai": "*",
     "coveralls": "*",
+    "eslint": "^4.19.1",
+    "eslint-plugin-mocha": "^5.0.0",
     "istanbul": "*",
-    "mocha": "4.1.0"
+    "mocha": "4.1.0",
+    "prettier": "1.13.5"
   }
 }

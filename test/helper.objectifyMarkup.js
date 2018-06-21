@@ -1,13 +1,12 @@
 /*eslint func-names: 0, no-magic-numbers:0 */
 /*global describe, it */
 
-var helper = require('../lib/helper');
+const helper = require('../lib/helper');
 require('chai').should();
 
-describe('helper.objectifyMarkup()', function() {
-  it('should add object array properties from $markup', function() {
-    var input, output;
-    input = {
+describe('helper.objectifyMarkup()', () => {
+  it('should add object array properties from $markup', () => {
+    const input = {
       $name: 'root',
       $attrs: {},
       $markup: [
@@ -19,7 +18,7 @@ describe('helper.objectifyMarkup()', function() {
       ]
     };
 
-    output = {
+    const output = {
       $name: 'root',
       $attrs: {},
       $text: 'text',
@@ -29,9 +28,8 @@ describe('helper.objectifyMarkup()', function() {
     helper.objectifyMarkup(input).should.deep.equal(output);
   });
 
-  it('should aggregate everything from $markup', function() {
-    var input, output;
-    input = {
+  it('should aggregate everything from $markup', () => {
+    const input = {
       $name: 'root',
       $attrs: {},
       $markup: [
@@ -45,7 +43,7 @@ describe('helper.objectifyMarkup()', function() {
       ]
     };
 
-    output = {
+    const output = {
       $name: 'root',
       $attrs: {},
       $text: [ 'text', 'text' ],
@@ -54,10 +52,8 @@ describe('helper.objectifyMarkup()', function() {
     helper.objectifyMarkup(input).should.deep.equal(output);
   });
 
-  it('should not oversimplify', function() {
-    var input, output;
-
-    input = {
+  it('should not oversimplify', () => {
+    const input = {
       $name: 'thing',
       $markup: [{
         $name: 'header',
@@ -66,7 +62,7 @@ describe('helper.objectifyMarkup()', function() {
       }]
     };
 
-    output = {
+    const output = {
       $name: 'thing',
       header: {
         $attrs: { id: '3' },
@@ -77,10 +73,8 @@ describe('helper.objectifyMarkup()', function() {
     helper.objectifyMarkup(input).should.deep.equal(output);
   });
 
-  it('should preserve arrays if asked', function() {
-    var input, output;
-
-    input = {
+  it('should preserve arrays if asked', () => {
+    const input = {
       $name: 'root',
       $attrs: {},
       $markup: [
@@ -89,7 +83,7 @@ describe('helper.objectifyMarkup()', function() {
       ]
     };
 
-    output = {
+    const output = {
       $name: 'root',
       $attrs: {},
       $text: [ 'text' ],
