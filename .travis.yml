@@ -3,9 +3,8 @@ env:
     - CC_TEST_REPORTER_ID=0ccfca9f99926c5e4bcc517db8f15125cb811bd6f59970ffcfbe4ebc13a8af9b
 language: node_js
 node_js:
+  - "12"
   - "10"
-  - "8"
-  - "6"
 script: "npm run travis"
 after_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
