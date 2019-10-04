@@ -27,9 +27,9 @@ declare namespace flow {
     }
 
     export interface toXmlOptions {
-        indent: string,
-        selfClosing: boolean,
-        escape: Function
+        indent?: string,
+        selfClosing?: boolean,
+        escape?: Function
     }
 
     export function toXml(obj: object, options: flow.toXmlOptions): string;
