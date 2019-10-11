@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "test": "mocha test/*.js",
-    "travis": "npm run lint && istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*.js"
+    "coverage": "nyc npm run test",
+    "travis": "npm run lint && npm run coverage"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,17 @@
     "eslint": "^6.0.0",
     "eslint-plugin-mocha": "^5.3.0",
     "extend": ">=3.0.2",
-    "istanbul": "*",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
+  },
+  "nyc": {
+    "all": true,
+    "reporters": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "include": "lib/**/*.js",
+    "exclude": "test/**/*.js"
   }
 }
