@@ -20,7 +20,7 @@
     "huge files"
   ],
   "author": "Matthew Larson <matthewmatician@gmail.com>",
-  "license": "BSD",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/matthewmatician/xml-flow/issues"
   },
